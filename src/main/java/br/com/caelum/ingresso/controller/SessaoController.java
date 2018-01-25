@@ -24,6 +24,8 @@ public class SessaoController {
 	private SalaDao salaDao;
 	@Autowired
 	private FilmeDao filmeDao;
+	@Autowired
+	private SessaoDao sessaoDao;
 	
 	@GetMapping("admin/sessao")
 	public ModelAndView form(@RequestParam("salaId") Integer salaId,
@@ -53,7 +55,6 @@ public class SessaoController {
 		
 		Sessao sessao = form.toSessao(salaDao, filmeDao);
 		
-		SessaoDao sessaoDao = new SessaoDao();
 		sessaoDao.save(sessao);
 		
 		return modelAndView;
